@@ -32,7 +32,7 @@ export default class Main extends Component {
             <input
               onChange={this.handleKeypress}
               value={this.state.boxName}
-              placeholder="Criar um box!"
+              placeholder="Crie sua skaibox!"
             />
             <button type="submit">Criar</button>
           </form>
