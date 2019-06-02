@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import apiObj from "../../services/api";
+import api from "../../services/api";
 
 import logo from "../../assets/skaibox.svg";
 import './styles.css';
-
-const api = apiObj.axios;
 
 export default class Main extends Component {
   state = {
