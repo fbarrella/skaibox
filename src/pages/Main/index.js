@@ -1,0 +1,42 @@
+import React, { Component } from 'react';
+import api from "../../services/api";
+
+import logo from "../../assets/skaibox.svg";
+import './styles.css';
+
+export default class Main extends Component {
+  state = {
+    boxName: ""
+  };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    const response = await api.post("skaibox", {
+      title: this.state.boxName
+    });
+
+    console.log(response.data);
+  }
+
+  handleKeypress = (event) => {
+    this.setState({boxName: event.target.value});
+  }
+
+  render() {
+    return (
+        <div id="main-container">
+          <form onSubmit={this.handleSubmit}>
+            <img src={logo} alt="Skaibox" />
+
+            <input
+              onChange={this.handleKeypress}
+              value={this.state.boxName}
+              placeholder="Criar um box!"
+            />
+            <button type="submit">Criar</button>
+          </form>
+        </div>
+    );
+  }
+}
