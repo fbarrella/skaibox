@@ -10,7 +10,8 @@
     "react-dropzone": "^10.1.5",
     "react-icons": "^3.7.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "socket.io-client": "^2.2.0"
   },
   "scripts": {
     "start": "PORT=3030 react-scripts start",
