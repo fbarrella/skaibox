@@ -16,7 +16,7 @@ export default class Main extends Component {
       title: this.state.boxName
     });
 
-    console.log(response.data);
+    this.props.history.push(`box/${response.data._id}`);
   }
 
   handleKeypress = (event) => {
