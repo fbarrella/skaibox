@@ -1,6 +1,6 @@
-<div style="width: 100%; display: flex; flex-direction: row; justify-content: start; align-items: center;">
-    <img src="https://skaibox-api.herokuapp.com/files/a3e3d4d082f181c25c70a56487bde586-favicon.ico" width="35" />
-    <h1 style="width: 100%; margin-left: 10px;">Skaibox!</h1>
+<div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <img src="https://skaibox-api.herokuapp.com/files/a3e3d4d082f181c25c70a56487bde586-favicon.ico" width="60" />
+    <h1 style="width: 100%; text-align: center; margin-top: 0px;">Skaibox!</h1>
 </div>
 <h2 style="margin-top: -5px">Uma aplicação construída com NodeJS, Express, MongoDB e ReactJS</h2>
 
