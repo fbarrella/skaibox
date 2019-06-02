@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import api from "../../services/api";
+import apiObj from "../../services/api";
 
 import logo from "../../assets/skaibox.svg";
 import './styles.css';
+
+const api = apiObj.axios;
 
 export default class Main extends Component {
   state = {
@@ -32,7 +34,7 @@ export default class Main extends Component {
             <input
               onChange={this.handleKeypress}
               value={this.state.boxName}
-              placeholder="Criar um box!"
+              placeholder="Crie sua skaibox!"
             />
             <button type="submit">Criar</button>
           </form>

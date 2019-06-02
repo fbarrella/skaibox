@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import api from "../../services/api";
+import apiObj from "../../services/api";
 import { distanceInWords } from "date-fns";
 import pt from "date-fns/locale/pt";
 import Dropzone from "react-dropzone";
@@ -8,6 +8,8 @@ import socket from "socket.io-client";
 import { MdInsertDriveFile } from "react-icons/md";
 import logo from "../../assets/skaibox.svg";
 import "./styles.css";
+
+const api = apiObj.axios;
 
 export default class Box extends Component {
     state = {
@@ -25,7 +27,7 @@ export default class Box extends Component {
 
     subscribeToNewFiles = () => {
         const box = this.props.match.params.id;
-        const io = socket("http://localhost:3000/");
+        const io = socket(apiObj.baseURI);
 
         io.emit("connectRoom", box);
         io.on("file", data => {
@@ -39,7 +41,6 @@ export default class Box extends Component {
         files.forEach(file => {
             const data = new FormData();
             data.append("file", file);
-            console.log(box);
             api.post(`skaibox/${box}/file`, data);
         });
     }
