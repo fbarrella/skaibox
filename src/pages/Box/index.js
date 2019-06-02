@@ -25,11 +25,11 @@ export default class Box extends Component {
 
     subscribeToNewFiles = () => {
         const box = this.props.match.params.id;
-        const io = socket("http://localhost:3000/");
+        const io = socket(process.env.REACT_APP_API_URL);
 
         io.emit("connectRoom", box);
-        io.on("file", data => {
-            this.setState({ box:{ ... this.state.box, files: [data, ... this.state.box.files] } });
+        io.on("newFile", data => {
+            this.setState({ box:{ ...this.state.box, files: [data, ...this.state.box.files] } });
         });
     }
 
@@ -39,7 +39,6 @@ export default class Box extends Component {
         files.forEach(file => {
             const data = new FormData();
             data.append("file", file);
-            console.log(box);
             api.post(`skaibox/${box}/file`, data);
         });
     }
@@ -65,7 +64,7 @@ export default class Box extends Component {
                 <ul>
                     { this.state.box.files && this.state.box.files.map(file => (
                         <li key={ file._id }>
-                            <a className="fileInfo" href={ file.url }>
+                            <a className="fileInfo" href={ file.url } target="_blank">
                                 <MdInsertDriveFile size={24} color="#A5Cfff" />
                                 <strong>{ file.title }</strong>
                             </a>
